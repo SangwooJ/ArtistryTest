@@ -5,7 +5,7 @@ function setShare(){
   var resultAlt = resultImg.firstElementChild.alt;
   const shareTitle = '예술성 테스트';
   const shareDes = infoList[0].name;
-  const shareImage = url + 'main.png';
+  const shareImage = url + 'img/main.png';
   const shareURL = url;
 
   Kakao.Link.sendDefault({
