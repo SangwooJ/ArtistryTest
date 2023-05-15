@@ -60,8 +60,12 @@ function setResult(){
           }]
       },
       options: {
-          
-      }
+        scales: {
+            r: {
+                suggestedMax: 100,
+            }
+        }
+    }
   });
 
   const resultDesc = document.querySelector('.resultDesc');
