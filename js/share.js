@@ -1,4 +1,4 @@
-const url = 'https://**.netlify.app/';
+const url = 'https://artistrytest.netlify.app/';
 
 function setShare(){
   var resultImg = document.querySelector('#resultImg');
