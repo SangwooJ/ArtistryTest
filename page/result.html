@@ -30,6 +30,11 @@
     <link rel="stylesheet" href="../css/result.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+      var urlParams = new URLSearchParams(window.location.search);
+      var data = urlParams.get('data');
+      console.log(data)
+    </script>
   </head>
   <body>
     <section id="shareResult" class="mx-auto my-5 py-5 px-3">
