@@ -30,11 +30,7 @@
     <link rel="stylesheet" href="../css/result.css">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      var urlParams = new URLSearchParams(window.location.search);
-      var data = urlParams.get('data');
-      console.log(data)
-    </script>
+
   </head>
   <body>
     <section id="shareResult" class="mx-auto my-5 py-5 px-3">
@@ -43,11 +39,43 @@
         <p>당신의 예술성은...</p>
       </div>
       <div id="resultImg" class="my-3 col-lg-6 col-md-8 col-sm-10 col-12 mx-auto">
-        <img src="../img/main.png" alt="0" class="img-fluid">
+        
+        <canvas id="myChart"></canvas>
+        
       </div>
-      <div class="resultDesc">
-        <p>총점</p>
+      <div class="resultDesc" id="displayTotal">
+        
       </div>
+      <script>
+        var urlParams = new URLSearchParams(window.location.search);
+
+        var sense = parseInt(urlParams.get('parameter1'));
+        var view = parseInt(urlParams.get('parameter2'));
+        var create = parseInt(urlParams.get('parameter3'));
+        var total = Math.round((sense+view+create)/3);
+        console.log(total)
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'polarArea',
+            data: {
+                labels: ['감각', '감상', '창작'],
+                datasets: [{
+                    //label: 'score',
+                    data: [sense, view, create],
+                    //borderWidth: 1
+                }]
+            },
+            options: {
+              scales: {
+                  r: {
+                      suggestedMax: 100,
+                  }
+              }
+          }
+        });
+        document.getElementById('displayTotal').textContent = '총점: ' + total +'점';
+        </script>
       <script type="text/javascript">
         function moveHome(){
           location.href = "/index.html";
