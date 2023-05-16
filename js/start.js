@@ -5,7 +5,6 @@ const result = document.querySelector("#result");
 const endPoint = qnaList.length;
 const scores = [0, 0, 0];
 
-const API_KEY = config.kakaojs;
 
 console.log(endPoint);
 
